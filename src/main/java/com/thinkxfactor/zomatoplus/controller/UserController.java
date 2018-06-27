@@ -27,6 +27,13 @@ public class UserController {
 		return user;
 	}
 	
+	@PostMapping("/login")
+	public User userLogin(@RequestBody User user1) {
+		User user=userRepo.findByUsernameAndPassword(user1.getUsername(),user1.getPassword());
+			return user;
+			
+	}
+	
 	@GetMapping("/all")
 	public List<User> getAll(){
 		return userRepo.findAll();

@@ -17,18 +17,25 @@ public class User implements Serializable {
 	@GeneratedValue
 	@Column(name="user_id")
 	private int id;
+	
 	@Column(name="firstname")
 	private String firstname;
+	
 	@Column(name="lastname")
 	private String lastname;
+	
 	@Column(name="address")
 	private String address;
+	
 	@Column(name="email")
 	private String email;
+	
 	@Column(name="phone")
 	private String phone;
-	@Column(name="username")
+	
+	@Column(name="username",unique=true)
 	private String username;
+	
 	@Column(name="password")
 	private String password;
 	
