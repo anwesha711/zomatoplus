@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 	import org.springframework.web.bind.annotation.RestController;
 
 import com.thinkxfactor.zomatoplus.models.AddItems;
-import com.thinkxfactor.zomatoplus.models.CreateRestaurant;
+import com.thinkxfactor.zomatoplus.models.Restaurant;
 import com.thinkxfactor.zomatoplus.repo.ItemsRepository;
 import com.thinkxfactor.zomatoplus.repo.RestaurantRepo;
 
@@ -26,28 +26,22 @@ import java.util.*;
 		@Autowired
 		private ItemsRepository itemRepo;
 		
-		@PostMapping("/create")
-		public CreateRestaurant createRestuarant(@RequestBody CreateRestaurant res) {
-			restRepo.saveAndFlush(res);
-			return res;
+		@PostMapping("/add")
+		public Restaurant createRestuarant(@RequestBody Restaurant res) {
+			Restaurant persistedRestaurant = restRepo.save(res);
+			return persistedRestaurant;
 		}
 		
-		@PostMapping("/addItem")
+		@PostMapping("/add_items")
 		public AddItems addItems(@RequestBody AddItems item) {
-			itemRepo.saveAndFlush(item);
-			return item;
+			AddItems persistedItem = itemRepo.save(item);
+			return persistedItem;
 		}
 		
 		@GetMapping("/getAll")
-		public List<CreateRestaurant> getAll() {
-			
-			return restRepo.findAll();
-		}
-		
-		@GetMapping("/all")
-		public List<AddItems> all() {
-			
-			return itemRepo.findAll();
+		public List<Restaurant> getAll() {
+			List<Restaurant> res = restRepo.findAll();
+			return res;
 		}
 	
 }

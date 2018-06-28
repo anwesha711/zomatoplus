@@ -14,59 +14,40 @@ public class AddItems implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name="item_id")
-	private Long id;
+	@Column(name="Name")
+	private String Name;
+	@Column(name="Description")
+	private String Description;
+	@Column(name="Price")
+	private String Price;
 	
-	@Column(name="restaurant_id")
-	private Long restaurantId;
 	
-	@Column(name="name")
-	private String name;
-	
-	@Column(name="price")
-	private Double price;
-	
-	@Column(name="description")
-	private String description;
-	
-	public Long getId() {
-		return id;
-	}
-
-	public Long getRestaurantId() {
-		return restaurantId;
-	}
-
-	public void setRestaurantId(Long restaurantId) {
-		this.restaurantId = restaurantId;
+	public AddItems() {
+		super();
 	}
 
 	public String getName() {
-		return name;
+		return Name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
+		Name = name;
 	}
 
 	public String getDescription() {
-		return description;
+		return Description;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		Description = description;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public String getPrice() {
+		return Price;
 	}
-	
+
+	public void setPrice(String price) {
+		Price = price;
+	}
+
 }
